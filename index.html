@@ -1,0 +1,664 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Éthique professionnelle et co-construction d'un comité d'éthique — Formation</title>
+<meta name="description" content="Formation d'une journée : Éthique professionnelle et co-construction d'un comité d'éthique. 27 et 28 août 2026, Voreppe (Isère).">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,500;9..144,600;9..144,700&family=Public+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg: #F6F4EE;
+    --surface: #FFFFFF;
+    --ink: #16262B;
+    --ink-soft: #435055;
+    --petrol: #0E5C63;
+    --petrol-dark: #0A454A;
+    --petrol-tint: #E4EEED;
+    --gold: #B8863A;
+    --gold-tint: #F4E9D3;
+    --sage: #5F7F68;
+    --sage-tint: #E7EFE7;
+    --border: #E1DACB;
+    --radius: 14px;
+    --shadow: 0 6px 24px rgba(14,92,99,0.08);
+    --maxw: 1040px;
+  }
+
+  *{ box-sizing: border-box; }
+  html{ scroll-behavior: smooth; }
+
+  body{
+    margin:0;
+    background: var(--bg);
+    color: var(--ink);
+    font-family: "Public Sans", system-ui, -apple-system, sans-serif;
+    line-height: 1.6;
+    font-size: 17px;
+  }
+
+  h1, h2, h3{
+    font-family: "Fraunces", Georgia, serif;
+    color: var(--ink);
+    line-height: 1.15;
+    font-weight: 600;
+    letter-spacing: -0.01em;
+  }
+
+  .wrap{
+    max-width: var(--maxw);
+    margin: 0 auto;
+    padding: 0 24px;
+  }
+
+  a{ color: var(--petrol-dark); }
+  a:focus-visible, button:focus-visible, [tabindex]:focus-visible{
+    outline: 3px solid var(--gold);
+    outline-offset: 3px;
+  }
+
+  .skip-link{
+    position:absolute; left:-9999px; top:0;
+    background: var(--petrol); color:#fff; padding:12px 20px;
+    border-radius: 0 0 8px 0; z-index: 100;
+  }
+  .skip-link:focus{ left:0; }
+
+  /* ---------- HEADER ---------- */
+  header.hero{
+    background: linear-gradient(160deg, var(--petrol) 0%, var(--petrol-dark) 100%);
+    color: #fff;
+    padding: 48px 0 64px;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero .wrap{
+    display: flex;
+    flex-direction: column;
+    gap: 28px;
+    position: relative;
+    z-index: 2;
+  }
+  .brand-row{
+    display:flex; align-items:center; gap:16px; flex-wrap: wrap;
+  }
+  .brand-row img{
+    height: 56px; width:auto;
+    background: #fff;
+    border-radius: 10px;
+    padding: 6px 10px;
+  }
+  .brand-row .brand-fallback{
+    display:none;
+    height: 56px; padding: 0 16px;
+    align-items:center;
+    background:#fff; color: var(--petrol-dark);
+    border-radius: 10px; font-weight:700; letter-spacing: .04em;
+    font-family:"Fraunces", serif;
+  }
+  .brand-row span.org{
+    font-size: 14px;
+    letter-spacing: .08em;
+    text-transform: uppercase;
+    opacity: .85;
+  }
+  .hero h1{
+    color: #fff;
+    font-size: clamp(1.9rem, 4vw, 3rem);
+    max-width: 18ch;
+    margin: 0;
+  }
+  .hero .tagline{
+    font-size: 1.15rem;
+    max-width: 56ch;
+    color: #F0EFE8;
+    margin: 0;
+  }
+  .key-facts{
+    display:flex; flex-wrap: wrap; gap: 14px;
+    margin-top: 8px;
+  }
+  .key-fact{
+    background: rgba(255,255,255,0.1);
+    border: 1px solid rgba(255,255,255,0.25);
+    border-radius: 999px;
+    padding: 9px 18px;
+    font-size: .92rem;
+    display:flex; align-items:center; gap:8px;
+  }
+  .key-fact strong{ font-weight:600; }
+  .hero-cta{
+    display:flex; gap:14px; flex-wrap: wrap; margin-top: 6px;
+  }
+  .btn{
+    display:inline-flex; align-items:center; gap:10px;
+    padding: 13px 24px;
+    border-radius: 999px;
+    font-weight: 600;
+    text-decoration: none;
+    border: 2px solid transparent;
+    cursor: pointer;
+    font-size: .98rem;
+    font-family: inherit;
+  }
+  .btn-gold{
+    background: var(--gold);
+    color: #24170A;
+  }
+  .btn-gold:hover{ background:#A5762F; }
+  .btn-ghost{
+    background: transparent;
+    color: #fff;
+    border-color: rgba(255,255,255,0.6);
+  }
+  .btn-ghost:hover{ border-color: #fff; background: rgba(255,255,255,0.08); }
+  .btn-disabled{
+    background: rgba(255,255,255,0.12);
+    color: rgba(255,255,255,0.55);
+    border-color: rgba(255,255,255,0.2);
+    cursor: not-allowed;
+  }
+
+  /* balance motif */
+  .balance-motif{
+    position:absolute; right: -40px; top: 10px;
+    width: 260px; height: 260px; opacity: .16;
+    z-index:1;
+  }
+  @media (prefers-reduced-motion: no-preference){
+    .balance-motif .beam{ animation: tilt 7s ease-in-out infinite; transform-origin: 130px 70px; }
+  }
+  @keyframes tilt{
+    0%,100%{ transform: rotate(-3deg); }
+    50%{ transform: rotate(3deg); }
+  }
+
+  /* ---------- SECTIONS ---------- */
+  section{ padding: 56px 0; }
+  section.alt{ background: var(--surface); }
+  .eyebrow{
+    text-transform: uppercase;
+    letter-spacing: .1em;
+    font-size: .8rem;
+    font-weight: 600;
+    color: var(--petrol);
+    margin: 0 0 8px;
+  }
+  h2{ font-size: clamp(1.5rem, 3vw, 2.1rem); margin: 0 0 18px; }
+  .lead{ color: var(--ink-soft); max-width: 68ch; font-size: 1.05rem; }
+
+  .divider{
+    display:flex; align-items:center; justify-content:center;
+    padding: 6px 0 36px;
+  }
+  .divider svg{ width: 64px; height: 64px; }
+
+  /* objectives grid */
+  .obj-grid{
+    display:grid; grid-template-columns: repeat(auto-fit, minmax(240px,1fr));
+    gap: 16px; margin-top: 28px;
+  }
+  .obj-card{
+    background: var(--petrol-tint);
+    border-radius: var(--radius);
+    padding: 18px 20px;
+    font-size: .96rem;
+    color: var(--ink);
+  }
+
+  /* accordion */
+  .accordion{ margin-top: 32px; border-top: 1px solid var(--border); }
+  .acc-item{ border-bottom: 1px solid var(--border); }
+  .acc-trigger{
+    width: 100%;
+    background: none; border: none;
+    display: flex; align-items: center; justify-content: space-between;
+    gap: 18px;
+    padding: 20px 4px;
+    cursor: pointer;
+    text-align: left;
+    font-family: inherit;
+    color: var(--ink);
+  }
+  .acc-trigger .acc-time{
+    font-family: "Public Sans", monospace;
+    font-variant-numeric: tabular-nums;
+    background: var(--gold-tint);
+    color: #6B4E1E;
+    border-radius: 8px;
+    padding: 4px 10px;
+    font-size: .85rem;
+    font-weight: 600;
+    white-space: nowrap;
+    flex-shrink: 0;
+  }
+  .acc-trigger .acc-title{
+    font-weight: 600;
+    font-size: 1.05rem;
+    flex: 1;
+  }
+  .acc-trigger .chevron{
+    flex-shrink:0; transition: transform .25s ease;
+    color: var(--petrol);
+  }
+  .acc-trigger[aria-expanded="true"] .chevron{ transform: rotate(180deg); }
+  .acc-panel{
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height .3s ease;
+  }
+  .acc-panel p{
+    margin: 0 4px 20px;
+    color: var(--ink-soft);
+  }
+
+  /* two-col info */
+  .info-grid{
+    display:grid; grid-template-columns: 1.1fr 1fr; gap: 40px;
+    margin-top: 28px;
+  }
+  @media (max-width: 780px){ .info-grid{ grid-template-columns: 1fr; } }
+  .info-list{ list-style:none; padding:0; margin:0; display:grid; gap:14px; }
+  .info-list li{ display:flex; gap:12px; }
+  .info-list .dot{
+    width:8px; height:8px; border-radius:50%; background: var(--gold);
+    margin-top: 9px; flex-shrink:0;
+  }
+
+  /* map */
+  .map-wrap{
+    border-radius: var(--radius);
+    overflow: hidden;
+    border: 1px solid var(--border);
+    box-shadow: var(--shadow);
+  }
+  .map-wrap iframe{ width:100%; height: 320px; border:0; display:block; }
+  .map-caption{ font-size: .88rem; color: var(--ink-soft); margin-top: 10px; }
+
+  /* video / formateur */
+  .formateur-card{
+    display:grid; grid-template-columns: 1fr 1.2fr; gap: 32px;
+    background: var(--surface); border-radius: var(--radius);
+    border: 1px solid var(--border); padding: 28px; margin-top: 24px;
+    align-items:center;
+  }
+  @media (max-width: 780px){ .formateur-card{ grid-template-columns: 1fr; } }
+  .video-frame{
+    aspect-ratio: 16/9; border-radius: 10px; overflow:hidden;
+    background: var(--petrol-tint);
+    display:flex; align-items:center; justify-content:center;
+    color: var(--petrol-dark); text-align:center; padding: 20px;
+    font-size: .92rem;
+  }
+  .video-frame iframe{ width:100%; height:100%; border:0; }
+
+  /* downloads */
+  .downloads{
+    display:flex; gap: 18px; flex-wrap: wrap; margin-top: 24px;
+  }
+  .dl-card{
+    display:flex; align-items:center; gap: 14px;
+    background: var(--surface); border: 1px solid var(--border);
+    border-radius: var(--radius); padding: 18px 20px;
+    text-decoration:none; color: var(--ink);
+    min-width: 240px; flex: 1;
+  }
+  .dl-card.disabled{ opacity:.55; cursor:not-allowed; }
+  .dl-card .dl-icon{
+    width:42px; height:42px; border-radius:8px;
+    background: var(--gold-tint); color:#6B4E1E;
+    display:flex; align-items:center; justify-content:center;
+    flex-shrink:0;
+  }
+  .dl-card strong{ display:block; font-size: .98rem; }
+  .dl-card span.sub{ font-size: .82rem; color: var(--ink-soft); }
+
+  /* accessibility banner */
+  .access-banner{
+    background: var(--sage-tint);
+    border-radius: var(--radius);
+    padding: 28px 30px;
+    display:flex; gap: 20px; align-items:flex-start;
+    margin-top: 24px;
+  }
+  .access-banner svg{ flex-shrink:0; color: var(--sage); margin-top:4px; }
+
+  /* footer */
+  footer{
+    background: var(--ink);
+    color: #E9E7E0;
+    padding: 44px 0 32px;
+  }
+  footer h3{ color:#fff; font-size:1.1rem; margin: 0 0 10px; }
+  .footer-grid{
+    display:grid; grid-template-columns: repeat(auto-fit, minmax(220px,1fr));
+    gap: 32px;
+  }
+  footer a{ color:#F0EFE8; }
+  .footer-bottom{
+    margin-top: 32px; padding-top: 20px;
+    border-top: 1px solid rgba(255,255,255,0.15);
+    font-size: .85rem; color: #B8B6AE;
+    display:flex; justify-content:space-between; flex-wrap:wrap; gap:10px;
+  }
+</style>
+</head>
+<body>
+
+<a href="#programme" class="skip-link">Aller au contenu principal</a>
+
+<header class="hero">
+  <svg class="balance-motif" viewBox="0 0 260 200" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+    <g class="beam" stroke="#fff" stroke-width="3" stroke-linecap="round">
+      <line x1="30" y1="70" x2="230" y2="70"/>
+      <line x1="130" y1="70" x2="130" y2="150"/>
+      <line x1="30" y1="70" x2="30" y2="110"/>
+      <line x1="230" y1="70" x2="230" y2="110"/>
+      <path d="M10 110 A20 20 0 0 0 50 110 Z"/>
+      <path d="M210 110 A20 20 0 0 0 250 110 Z"/>
+    </g>
+    <line x1="90" y1="150" x2="170" y2="150" stroke="#fff" stroke-width="3" stroke-linecap="round"/>
+  </svg>
+
+  <div class="wrap">
+    <div class="brand-row">
+      <img src="logo.png" alt="Logo APF France handicap" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+      <div class="brand-fallback">APF France handicap — Isère</div>
+      <span class="org">Établissement médico-social · APF France handicap · Isère</span>
+    </div>
+
+    <h1>Éthique professionnelle et co-construction d'un comité d'éthique</h1>
+    <p class="tagline">Une journée pour poser les bases d'une réflexion éthique partagée, et construire ensemble le comité qui la portera au sein de l'établissement.</p>
+
+    <div class="key-facts">
+      <span class="key-fact">📅 <strong>27 et 28 août 2026</strong></span>
+      <span class="key-fact">🕘 <strong>9h00 – 17h00</strong></span>
+      <span class="key-fact">📍 <strong>Voreppe (38)</strong></span>
+      <span class="key-fact">👥 <strong>8 à 15 participants</strong></span>
+      <span class="key-fact">🎓 Présentiel</span>
+    </div>
+
+    <div class="hero-cta">
+      <a href="programme.pdf" class="btn btn-gold" download>Télécharger le programme (PDF)</a>
+      <a href="#lieu" class="btn btn-ghost">Voir le lieu et les dates</a>
+    </div>
+  </div>
+</header>
+
+<main>
+
+<section id="objectifs">
+  <div class="wrap">
+    <p class="eyebrow">Pourquoi cette formation</p>
+    <h2>Comprendre, analyser, décider ensemble</h2>
+    <p class="lead">À l'issue de la formation, chaque participant sera capable de comprendre les fondements de l'éthique professionnelle, d'utiliser une méthode structurée d'analyse des dilemmes éthiques, et de contribuer à la création ou au fonctionnement d'un comité d'éthique au sein de son organisation.</p>
+
+    <div class="obj-grid">
+      <div class="obj-card">Distinguer éthique, morale, droit et déontologie</div>
+      <div class="obj-card">Identifier une véritable question éthique dans une situation professionnelle</div>
+      <div class="obj-card">Appliquer une méthode d'analyse à une situation complexe</div>
+      <div class="obj-card">Argumenter une décision collégiale à partir des valeurs en tension</div>
+      <div class="obj-card">Expliquer les missions et les limites d'un comité d'éthique</div>
+      <div class="obj-card">Contribuer à définir les modalités de fonctionnement d'un comité</div>
+    </div>
+  </div>
+</section>
+
+<div class="divider" aria-hidden="true">
+  <svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <g stroke="#B8863A" stroke-width="2.2" stroke-linecap="round">
+      <line x1="8" y1="20" x2="56" y2="20"/>
+      <line x1="32" y1="20" x2="32" y2="46"/>
+      <line x1="8" y1="20" x2="8" y2="32"/>
+      <line x1="56" y1="20" x2="56" y2="32"/>
+      <path d="M2 32 A6 6 0 0 0 14 32 Z"/>
+      <path d="M50 32 A6 6 0 0 0 62 32 Z"/>
+      <line x1="22" y1="46" x2="42" y2="46"/>
+    </g>
+  </svg>
+</div>
+
+<section id="programme" class="alt">
+  <div class="wrap">
+    <p class="eyebrow">Déroulé de la journée</p>
+    <h2>Programme détaillé</h2>
+    <p class="lead">7 heures de formation en présentiel, alternant apports théoriques, ateliers et mises en situation. Cliquez sur chaque séquence pour en voir le détail.</p>
+
+    <div class="accordion">
+
+      <div class="acc-item">
+        <button class="acc-trigger" aria-expanded="false">
+          <span class="acc-time">20 min</span>
+          <span class="acc-title">Accueil et ouverture</span>
+          <svg class="chevron" width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M5 7l5 5 5-5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+        <div class="acc-panel">
+          <p>Présentation du groupe et de la formatrice, recueil des attentes de chacun, présentation des règles de fonctionnement de la journée.</p>
+        </div>
+      </div>
+
+      <div class="acc-item">
+        <button class="acc-trigger" aria-expanded="false">
+          <span class="acc-time">50 min</span>
+          <span class="acc-title">Les fondamentaux de l'éthique</span>
+          <svg class="chevron" width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M5 7l5 5 5-5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+        <div class="acc-panel">
+          <p>Apports théoriques pour distinguer clairement éthique, morale, droit et déontologie — les repères indispensables avant d'aller plus loin.</p>
+        </div>
+      </div>
+
+      <div class="acc-item">
+        <button class="acc-trigger" aria-expanded="false">
+          <span class="acc-time">30 min</span>
+          <span class="acc-title">Jeu des dilemmes</span>
+          <svg class="chevron" width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M5 7l5 5 5-5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+        <div class="acc-panel">
+          <p>Un temps ludique pour apprendre à repérer, parmi des situations professionnelles variées, celles qui posent une véritable question éthique.</p>
+        </div>
+      </div>
+
+      <div class="acc-item">
+        <button class="acc-trigger" aria-expanded="false">
+          <span class="acc-time">1h30</span>
+          <span class="acc-title">Atelier d'analyse éthique</span>
+          <svg class="chevron" width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M5 7l5 5 5-5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+        <div class="acc-panel">
+          <p>Application concrète d'une grille d'analyse éthique à partir d'un cas réel issu du quotidien professionnel des participants.</p>
+        </div>
+      </div>
+
+      <div class="acc-item">
+        <button class="acc-trigger" aria-expanded="false">
+          <span class="acc-time">1h</span>
+          <span class="acc-title">Comité d'éthique : missions et fonctionnement</span>
+          <svg class="chevron" width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M5 7l5 5 5-5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+        <div class="acc-panel">
+          <p>World Café collaboratif : les participants circulent entre plusieurs tables pour explorer collectivement le rôle et les limites d'un comité d'éthique.</p>
+        </div>
+      </div>
+
+      <div class="acc-item">
+        <button class="acc-trigger" aria-expanded="false">
+          <span class="acc-time">1h10</span>
+          <span class="acc-title">Co-construction d'un comité d'éthique</span>
+          <svg class="chevron" width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M5 7l5 5 5-5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+        <div class="acc-panel">
+          <p>Élaboration collective des principes de gouvernance du futur comité : composition, fréquence, périmètre de saisine, articulation avec la direction.</p>
+        </div>
+      </div>
+
+      <div class="acc-item">
+        <button class="acc-trigger" aria-expanded="false">
+          <span class="acc-time">40 min</span>
+          <span class="acc-title">Simulation d'un comité</span>
+          <svg class="chevron" width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M5 7l5 5 5-5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+        <div class="acc-panel">
+          <p>Jeu de rôle : les participants vivent une réunion de comité d'éthique grandeur nature et expérimentent la posture adaptée à ces échanges.</p>
+        </div>
+      </div>
+
+      <div class="acc-item">
+        <button class="acc-trigger" aria-expanded="false">
+          <span class="acc-time">20 min</span>
+          <span class="acc-title">Conclusion</span>
+          <svg class="chevron" width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M5 7l5 5 5-5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+        <div class="acc-panel">
+          <p>Évaluation des acquis, engagement individuel de chaque participant, et clôture de la journée.</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<section id="public">
+  <div class="wrap">
+    <div class="info-grid">
+      <div>
+        <p class="eyebrow">Public concerné</p>
+        <h2>Pour qui ?</h2>
+        <ul class="info-list">
+          <li><span class="dot"></span> Directeurs d'établissement</li>
+          <li><span class="dot"></span> Cadres intermédiaires et chefs de service</li>
+          <li><span class="dot"></span> Professionnels du secteur sanitaire, social et médico-social</li>
+          <li><span class="dot"></span> Membres des instances de gouvernance</li>
+          <li><span class="dot"></span> Futurs membres d'un comité d'éthique</li>
+        </ul>
+      </div>
+      <div>
+        <p class="eyebrow">Prérequis</p>
+        <h2>Aucun prérequis technique</h2>
+        <p class="lead">Une expérience professionnelle dans le secteur sanitaire, social ou médico-social est recommandée, afin de favoriser les échanges à partir de situations réelles.</p>
+        <p class="lead" style="margin-top:16px;"><strong>Méthodes pédagogiques :</strong> apports théoriques ciblés, quiz interactifs, débats mouvants, World Café, études de cas, jeux de rôle, co-construction et analyse de pratiques entre pairs.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="formateur" class="alt">
+  <div class="wrap">
+    <p class="eyebrow">Le mot de la formatrice</p>
+    <h2>Présentation par Hélène Morvan</h2>
+    <div class="formateur-card">
+      <div class="video-frame">
+        <div>
+          🎬 Vidéo à venir<br>
+          <span style="font-size:.85rem; opacity:.8;">Le message vidéo de la formatrice sera ajouté prochainement.</span>
+        </div>
+      </div>
+      <div>
+        <p class="lead">Hélène Morvan est formatrice spécialisée en éthique appliquée et en accompagnement des établissements sanitaires, sociaux et médico-sociaux. Elle anime des démarches participatives et intervient sur les questions de gouvernance éthique.</p>
+        <p class="lead" style="margin-top:12px;">Une attestation de fin de formation est remise à chaque participant à l'issue de la session.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="lieu">
+  <div class="wrap">
+    <p class="eyebrow">Informations pratiques</p>
+    <h2>Dates, horaires et lieu</h2>
+
+    <div class="info-grid">
+      <ul class="info-list">
+        <li><span class="dot"></span> <strong>Dates :</strong> 27 et 28 août 2026</li>
+        <li><span class="dot"></span> <strong>Horaires :</strong> 9h00 – 17h00</li>
+        <li><span class="dot"></span> <strong>Format :</strong> présentiel, 7 heures</li>
+        <li><span class="dot"></span> <strong>Effectif :</strong> 8 à 15 participants (adaptable)</li>
+        <li><span class="dot"></span> <strong>Lieu :</strong> 10 Chemin de Malsouche, 38340 Voreppe, Isère <em>(adresse à confirmer)</em></li>
+        <li><span class="dot"></span> <strong>Accessibilité :</strong> salle modulable accessible PMR</li>
+      </ul>
+
+      <div class="map-wrap">
+        <iframe
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade"
+          src="https://www.google.com/maps?q=10+Chemin+de+Malsouche,+38340+Voreppe&output=embed"
+          title="Carte du lieu de formation à Voreppe">
+        </iframe>
+      </div>
+    </div>
+    <p class="map-caption">📍 Carte à confirmer une fois l'adresse exacte validée.</p>
+  </div>
+</section>
+
+<section class="alt">
+  <div class="wrap">
+    <p class="eyebrow">Accessibilité et handicap</p>
+    <h2>Une formation pensée pour tous</h2>
+    <div class="access-banner">
+      <svg width="28" height="28" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M12 2a10 10 0 100 20 10 10 0 000-20z" stroke="currentColor" stroke-width="1.6"/><path d="M12 8v5M12 16h.01" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+      <p style="margin:0; color:var(--ink-soft);">Cette formation est accessible aux personnes en situation de handicap. Les adaptations pédagogiques, organisationnelles et matérielles sont étudiées avec le référent handicap avant la session. Les supports sont conçus avec un contraste renforcé, des caractères agrandis, des pictogrammes et des modalités de participation variées.</p>
+    </div>
+  </div>
+</section>
+
+<section id="telechargements">
+  <div class="wrap">
+    <p class="eyebrow">Documents</p>
+    <h2>Téléchargements</h2>
+    <div class="downloads">
+      <a href="programme.pdf" class="dl-card" download>
+        <span class="dl-icon">📄</span>
+        <span><strong>Programme détaillé</strong><span class="sub">programme.pdf</span></span>
+      </a>
+      <span class="dl-card disabled" aria-disabled="true">
+        <span class="dl-icon">📘</span>
+        <span><strong>Livret stagiaire</strong><span class="sub">Bientôt disponible</span></span>
+      </span>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="footer-grid">
+      <div>
+        <h3>Contact formation</h3>
+        <p>Hélène Morvan<br>
+        <a href="mailto:Hélène.morvan@apf.asso.fr">Hélène.morvan@apf.asso.fr</a></p>
+      </div>
+      <div>
+        <h3>Engagement inclusion</h3>
+        <p><a href="#">Notre politique d'inclusion et handicap</a> <em style="opacity:.7;">(lien à venir)</em></p>
+      </div>
+      <div>
+        <h3>Organisme</h3>
+        <p>APF France handicap<br>Établissement médico-social — Isère</p>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 APF France handicap — Isère</span>
+      <span>Formation « Éthique professionnelle et co-construction d'un comité d'éthique »</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+  document.querySelectorAll('.acc-trigger').forEach(function(btn){
+    btn.addEventListener('click', function(){
+      var expanded = btn.getAttribute('aria-expanded') === 'true';
+      var panel = btn.nextElementSibling;
+      btn.setAttribute('aria-expanded', String(!expanded));
+      if(!expanded){
+        panel.style.maxHeight = panel.scrollHeight + 'px';
+      } else {
+        panel.style.maxHeight = 0;
+      }
+    });
+  });
+</script>
+
+</body>
+</html>
